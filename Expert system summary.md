@@ -161,7 +161,7 @@ mammal    :- verify(gives_milk).
 - Large (crossover)
 - Very large (suv)
 
-## Fuel
+## Fuel (может не надо?)
 - High economy
 - Medium economy
 - Low economy
@@ -312,6 +312,7 @@ mammal    :- verify(gives_milk).
 - wagon :- medium, for family
 - crossover :- large, for every day, for family
 - suv :- very large, off road, big family
+- pickup :- 
 
 
 

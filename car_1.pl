@@ -233,7 +233,8 @@ hatchback :- confirmed(small_size),
              confirmed(for_family).
 
 sedan :- confirmed(medium_size),
-         confirmed(for_every_day).
+         confirmed(for_every_day),
+         confirmed(for_businessman).
 
 wagon :- confirmed(medium_size),
          confirmed(for_family).

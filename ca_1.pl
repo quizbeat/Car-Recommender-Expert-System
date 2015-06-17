@@ -91,8 +91,8 @@ hypothesize(merceds_gl_klasse) :- merceds_gl_klasse, !.
 hypothesize(infiniti_qx) :- infiniti_qx, !.
 
 hypothesize(chevrolet_camaro) :- chevrolet_camaro, !.
-hypothesize(jaguar_f_type) :- jaguar_f_type, !.
 hypothesize(bentley_continental) :- bentley_continental, !.
+hypothesize(mercedes_sls_amg) :- mercedes_sls_amg, !.
 hypothesize(nissan_gtr) :- nissan_gtr, !.
 
 
@@ -111,25 +111,25 @@ peugeot_107 :- low_price_mini, french.
 chevrolet_aveo :- low_price_hatchback, american.
 peugeot_308 :- low_price_hatchback, french.
 opel_astra :- low_price_hatchback, german.
-toyota_auris :- low_price_hatchback, japan.
+toyota_auris :- low_price_hatchback, japanese.
 
 /* sedan */
 ford_focus :- low_price_sedan, american.
 peugeot_408 :- low_price_sedan, french.
 volkswagen_jetta :- low_price_sedan, german.
-toyota_corolla :- low_price_sedan, japan.
+toyota_corolla :- low_price_sedan, japanese.
 
 /* wagon */
 chevrolet_cruze :- low_price_wagon, american.
 peugeot_407 :- low_price_wagon, french.
 opel_vectra :- low_price_wagon, german.
-toyota_prius :- low_price_wagon, japan.
+toyota_prius :- low_price_wagon, japanese.
 
 /* crossover */
 ford_escape :- low_price_crossover, american.
 citroen_c4 :- low_price_crossover, french.
 opel_mokka :- low_price_crossover, german.
-nissan_juke :- low_price_crossover, japan.
+nissan_juke :- low_price_crossover, japanese.
 
 /* suv */
 renault_duster :- low_price_suv, french.
@@ -139,34 +139,34 @@ renault_duster :- low_price_suv, french.
 /* mini */
 mini_cooper :- medium_price_mini, british.
 smart_fortwo :- medium_price_mini, german.
-toyota_iq :- medium_price_mini, japan.
+toyota_iq :- medium_price_mini, japanese.
 
 /* hatchback */
 audi_a1 :- medium_price_hatchback, german.
-subaru_impreza :- medium_price_hatchback, japan.
+subaru_impreza :- medium_price_hatchback, japanese.
 volvo_c30 :- medium_price_hatchback, swedish.
 
 /* sedan */
 ford_mondeo :- medium_price_sedan, american.
 peugeot_607 :- medium_price_sedan, french.
 bmw_3er :- medium_price_sedan, german.
-toyota_camry :- medium_price_sedan, japan.
+toyota_camry :- medium_price_sedan, japanese.
 
 /* wagon */
 mercedes_c_klasse :- medium_price_wagon, german.
-toyota_avensis :- medium_price_wagon, japan.
+toyota_avensis :- medium_price_wagon, japanese.
 volvo_xc_70 :- medium_price_wagon, swedish.
 
 /* crossover */
 jeep_compass :- medium_price_crossover, american.
 land_rover_freelander :- medium_price_crossover, british.
 bmw_x3 :- medium_price_crossover, german.
-mitsubishi_outlander :- medium_price_crossover, japan.
+mitsubishi_outlander :- medium_price_crossover, japanese.
 
 /* suv */
 jeep_grand_cherokee :- medium_price_suv, american.
 land_rover_discovery :- medium_price_suv, british.
-nissan_pathfinder :- medium_price_suv, japan.
+nissan_pathfinder :- medium_price_suv, japanese.
 
 
 /* With high price */
@@ -174,12 +174,12 @@ nissan_pathfinder :- medium_price_suv, japan.
 aston_martin_cygnet :- high_price_mini, british.
 
 /* hatchback */
-lexus_ct :- high_price_hatchback, japan.
+lexus_ct :- high_price_hatchback, japanese.
 
 /* sedan */
 dodge_charger :- high_price_sedan, american.
 bmw_5er :- high_price_sedan, german.
-lexus_gs :- high_price_sedan, japan.
+lexus_gs :- high_price_sedan, japanese.
 volvo_s80 :- high_price_sedan, swedish.
 
 /* wagon */
@@ -189,12 +189,12 @@ mercedes_e_klasse :- high_price_wagon, german.
 
 /* crossover */
 porsche_macan :- high_price_crossover, german.
-infiniti_fx :- high_price_crossover, german.
+infiniti_fx :- high_price_crossover, japanese.
 
 /* suv */
 cadillac_escalade :- high_price_suv, american.
 mercedes_g_klasse :- high_price_suv, german.
-toyota_land_cruiser :- high_price_suv, japan.
+toyota_land_cruiser :- high_price_suv, japanese.
 
 /* pickup */
 dodge_ram :- high_price_pickup, american.
@@ -203,17 +203,17 @@ dodge_ram :- high_price_pickup, american.
 /* sedan */
 tesla_model_s :- very_high_price_sedan, american.
 mercedes_s_klasse :- very_high_price_sedan, german.
-lexus_ls :- very_high_price_sedan, japan.
+lexus_ls :- very_high_price_sedan, japanese.
 
 /* suv */
 merceds_gl_klasse :- very_high_price_suv, german.
-infiniti_qx :- very_high_price_suv, japan.
+infiniti_qx :- very_high_price_suv, japanese.
 
 /* coupe */
 chevrolet_camaro :- very_high_price_coupe, american.
-jaguar_f_type :- very_high_price_coupe, british.
-bentley_continental :- very_high_price_coupe, german.
-nissan_gtr :- very_high_price_coupe, japan.
+bentley_continental :- very_high_price_coupe, british.
+mercedes_sls_amg :- very_high_price_coupe, german.
+nissan_gtr :- very_high_price_coupe, japanese.
 
 
 /******************************************/
@@ -229,41 +229,35 @@ very_high_price :- confirmed(very_high_price).
 /*      Classification by body type       */
 /******************************************/
 mini :- confirmed(for_every_day),
-        not(confirmed(for_family)),
-        not(confirmed(big_trunk)).
+        not(confirmed(for_family)).
 
 hatchback :- confirmed(for_every_day),
              confirmed(for_family),
-             not(confirmed(big_trunk)).
+             not(confirmed(big_trunk)),
+             not(confirmed(presentability)).
 
 sedan :- confirmed(for_every_day),
          confirmed(for_family),
-         not(confirmed(for_off_road)),
-         confirmed(presentability),
-         not(confirmed(big_trunk)).
+         not(confirmed(big_trunk)),
+         confirmed(presentability).
 
 wagon :- confirmed(for_every_day),
          confirmed(for_family),
-         not(confirmed(for_off_road)),
-         not(confirmed(presentability)),
-         confirmed(big_trunk).
+         confirmed(big_trunk),
+         not(confirmed(for_off_road)).
 
 crossover :- confirmed(for_every_day),
              confirmed(for_family),
-             confirmed(for_off_road),
-             confirmed(big_trunk).
+             confirmed(big_trunk),
+             confirmed(for_off_road).
 
 suv :- not(confirmed(for_every_day)),
-       not(confirmed(for_transporting)),
-       confirmed(for_off_road),
        confirmed(for_family),
-       confirmed(big_trunk).
+       not(confirmed(for_transporting)).
 
 pickup :- not(confirmed(for_every_day)),
-          confirmed(for_transporting),
-          confirmed(for_off_road),
           confirmed(for_family),
-          confirmed(big_trunk).
+          confirmed(for_transporting).
 
 coupe :- not(confirmed(for_every_day)),
          not(confirmed(for_family)).
@@ -314,7 +308,7 @@ american :- confirmed(american).
 british :- confirmed(british).
 french :- confirmed(french).
 german :- confirmed(german).
-japan :- confirmed(japan).
+japanese :- confirmed(japanese).
 swedish :- confirmed(swedish).
 
 

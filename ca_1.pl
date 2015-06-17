@@ -34,7 +34,7 @@ hypothesize(renault_duster) :- renault_duster, !.
 
 
 hypothesize(mini_cooper) :- mini_cooper, !.
-hypothesize(smart_fortwo) :- smart_for_two, !.
+hypothesize(smart_fortwo) :- smart_fortwo, !.
 hypothesize(toyota_iq) :- toyota_iq, !.
 
 hypothesize(audi_a1) :- audi_a1, !.

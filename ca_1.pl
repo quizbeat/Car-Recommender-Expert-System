@@ -26,7 +26,7 @@ hypothesize(opel_vectra) :- opel_vectra, !.
 hypothesize(toyota_prius) :- toyota_prius, !.
 
 hypothesize(ford_escape) :- ford_escape, !.
-hypothesize(citroen_cactus) :- citroen_cactus, !.
+hypothesize(citroen_c4) :- citroen_c4, !.
 hypothesize(opel_mokka) :- opel_mokka, !.
 hypothesize(nissan_juke) :- nissan_juke, !.
 
@@ -34,7 +34,7 @@ hypothesize(renault_duster) :- renault_duster, !.
 
 
 hypothesize(mini_cooper) :- mini_cooper, !.
-hypothesize(smart_for_two) :- smart_for_two, !.
+hypothesize(smart_fortwo) :- smart_for_two, !.
 hypothesize(toyota_iq) :- toyota_iq, !.
 
 hypothesize(audi_a1) :- audi_a1, !.
@@ -57,7 +57,7 @@ hypothesize(mitsubishi_outlander) :- mitsubishi_outlander, !.
 
 hypothesize(jeep_grand_cherokee) :- jeep_grand_cherokee, !.
 hypothesize(land_rover_discovery) :- land_rover_discovery, !.
-hypothesize(mercedes_ml_klasse) :- mercedes_ml_klasse, !.
+hypothesize(nissan_pathfinder) :- nissan_pathfinder, !.
 
 
 hypothesize(aston_martin_cygnet) :- aston_martin_cygnet, !.
@@ -69,23 +69,25 @@ hypothesize(bmw_5er) :- bmw_5er, !.
 hypothesize(lexus_gs) :- lexus_gs, !.
 hypothesize(volvo_s80) :- volvo_s80, !.
 
-hypothesize(chrysler_300c) :- chrysler_300c, !.
+hypothesize(cadillac_cts) :- cadillac_cts, !.
 hypothesize(jaguar_xf) :- jaguar_xf, !.
 hypothesize(mercedes_e_klasse) :- mercedes_e_klasse, !.
 
-hypothesize(porsche_maccan) :- porsche_maccan, !.
-hypothesize(infiniti_ex) :- infiniti_ex, !.
+hypothesize(porsche_macan) :- porsche_macan, !.
+hypothesize(infiniti_fx) :- infiniti_fx, !.
+
+hypothesize(cadillac_escalade) :- cadillac_escalade, !.
+hypothesize(mercedes_g_klasse) :- mercedes_g_klasse, !.
+hypothesize(toyota_land_cruiser) :- toyota_land_cruiser, !.
 
 hypothesize(dodge_ram) :- dodge_ram, !.
-hypothesize(bmw_x6) :- bmw_x6, !.
-hypothesize(toyota_land_cruiser) :- toyota_land_cruiser, !.
 
 
 hypothesize(tesla_model_s) :- tesla_model_s, !.
 hypothesize(mercedes_s_klasse) :- mercedes_s_klasse, !.
 hypothesize(lexus_ls) :- lexus_ls, !.
 
-hypothesize(porsche_cayenne) :- porsche_cayenne, !.
+hypothesize(merceds_gl_klasse) :- merceds_gl_klasse, !.
 hypothesize(infiniti_qx) :- infiniti_qx, !.
 
 hypothesize(chevrolet_camaro) :- chevrolet_camaro, !.
@@ -125,7 +127,7 @@ toyota_prius :- low_price_wagon, japan.
 
 /* crossover */
 ford_escape :- low_price_crossover, american.
-citroen_cactus :- low_price_crossover, french.
+citroen_c4 :- low_price_crossover, french.
 opel_mokka :- low_price_crossover, german.
 nissan_juke :- low_price_crossover, japan.
 
@@ -136,7 +138,7 @@ renault_duster :- low_price_suv, french.
 /* With medium price */
 /* mini */
 mini_cooper :- medium_price_mini, british.
-smart_for_two :- medium_price_mini, german.
+smart_fortwo :- medium_price_mini, german.
 toyota_iq :- medium_price_mini, japan.
 
 /* hatchback */
@@ -164,7 +166,7 @@ mitsubishi_outlander :- medium_price_crossover, japan.
 /* suv */
 jeep_grand_cherokee :- medium_price_suv, american.
 land_rover_discovery :- medium_price_suv, british.
-mercedes_ml_klasse :- medium_price_suv, japan.
+nissan_pathfinder :- medium_price_suv, japan.
 
 
 /* With high price */
@@ -181,19 +183,21 @@ lexus_gs :- high_price_sedan, japan.
 volvo_s80 :- high_price_sedan, swedish.
 
 /* wagon */
-chrysler_300c :- high_price_wagon, american.
+cadillac_cts :- high_price_wagon, american.
 jaguar_xf :- high_price_wagon, british.
 mercedes_e_klasse :- high_price_wagon, german.
 
 /* crossover */
-porsche_maccan :- high_price_crossover, german.
-infiniti_ex :- high_price_crossover, german.
+porsche_macan :- high_price_crossover, german.
+infiniti_fx :- high_price_crossover, german.
 
 /* suv */
-dodge_ram :- high_price_suv, american.
-bmw_x6 :- high_price_suv, german.
+cadillac_escalade :- high_price_suv, american.
+mercedes_g_klasse :- high_price_suv, german.
 toyota_land_cruiser :- high_price_suv, japan.
 
+/* pickup */
+dodge_ram :- high_price_pickup, american.
 
 /* With very high price */
 /* sedan */
@@ -202,7 +206,7 @@ mercedes_s_klasse :- very_high_price_sedan, german.
 lexus_ls :- very_high_price_sedan, japan.
 
 /* suv */
-porsche_cayenne :- very_high_price_suv, german.
+merceds_gl_klasse :- very_high_price_suv, german.
 infiniti_qx :- very_high_price_suv, japan.
 
 /* coupe */
@@ -224,34 +228,45 @@ very_high_price :- confirmed(very_high_price).
 /******************************************/
 /*      Classification by body type       */
 /******************************************/
-mini :- confirmed(very_small_size),
-        confirmed(for_every_day),
-        not(confirmed(for_family)).
+mini :- confirmed(for_every_day),
+        not(confirmed(for_family)),
+        not(confirmed(big_trunk)).
 
-hatchback :- confirmed(small_size),
-             confirmed(for_every_day),
-             confirmed(for_family).
+hatchback :- confirmed(for_every_day),
+             confirmed(for_family),
+             not(confirmed(big_trunk)).
 
-sedan :- confirmed(medium_size),
-         confirmed(for_every_day),
-         confirmed(for_businessman).
+sedan :- confirmed(for_every_day),
+         confirmed(for_family),
+         not(confirmed(for_off_road)),
+         confirmed(presentability),
+         not(confirmed(big_trunk)).
 
-wagon :- confirmed(medium_size),
-         confirmed(for_family).
+wagon :- confirmed(for_every_day),
+         confirmed(for_family),
+         not(confirmed(for_off_road)),
+         not(confirmed(presentability)),
+         confirmed(big_trunk).
 
-crossover :- confirmed(large),
-             confirmed(for_every_day).
+crossover :- confirmed(for_every_day),
+             confirmed(for_family),
+             confirmed(for_off_road),
+             confirmed(big_trunk).
 
-suv :- confirmed(very_large_size),
+suv :- not(confirmed(for_every_day)),
+       not(confirmed(for_transporting)),
        confirmed(for_off_road),
-       confirmed(for_big_family).
+       confirmed(for_family),
+       confirmed(big_trunk).
 
-pickup :- confirmed(very_large_size),
+pickup :- not(confirmed(for_every_day)),
+          confirmed(for_transporting),
           confirmed(for_off_road),
+          confirmed(for_family),
           confirmed(big_trunk).
 
-coupe :- confirmed(small_size),
-         not(confirmed(for_every_day)).
+coupe :- not(confirmed(for_every_day)),
+         not(confirmed(for_family)).
 
 
 /******************************************/
@@ -280,6 +295,7 @@ high_price_sedan :- high_price, sedan.
 high_price_wagon :- high_price, wagon.
 high_price_crossover :- high_price, crossover.
 high_price_suv :- high_price, suv.
+high_price_pickup :- high_price, pickup.
 
 /* very high price body type */
 very_high_price_mini :- very_high_price, mini.
@@ -305,11 +321,8 @@ swedish :- confirmed(swedish).
 
 /* Main logic */
 ask(Question) :-
-    write('Do you want a car with feature '),
-    write(Question),
-    write('?'),
-    read(Response),
-    nl,
+    write('Do you want a '), write(Question), write(' car?'),
+    read(Response), nl,
     ((Response == yes ; Response == y) ->
        assert(yes(Question)) ;
        assert(no(Question)), fail).

@@ -208,7 +208,7 @@ mammal    :- verify(gives_milk).
 - opel vectra (german)
 
 ## Crossover
-- citroen cactus (french)
+- citroen c4 (french)
 - ford escape (american)
 - opel mokka (german)
 - nissan juke (japan)
@@ -268,16 +268,16 @@ mammal    :- verify(gives_milk).
 
 ## Wagon
 - mercedes e klasse (german)
-- chrysler 300c (american)
+- cadillac cts (american)
 - jaguar xf (british)
 
 ## Crossover
-- porsche maccan (german)
-- infiniti ex (japan)
+- porsche macan (german)
+- infiniti fx (japan)
 
 ## SUV
 - dodge ram (american)
-- bmw x6 (german)
+- mercedes gl (german)
 - toyota land cruiser (japan)
 
 **SEPARATOR**

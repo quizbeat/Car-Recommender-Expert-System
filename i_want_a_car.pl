@@ -1,8 +1,8 @@
-go :- hypothesize(Car),
-      write('The best car for you is '),
-	  write(Car),
-	  nl,
-      undo.
+i_want_a_car :- hypothesize(Car),
+                write('The best car for you is '),
+	            write(Car),
+	            nl,
+                undo.
 
 /******************************************/
 /*             Available cars             */

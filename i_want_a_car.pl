@@ -234,12 +234,12 @@ mini :- confirmed(for_every_day),
 hatchback :- confirmed(for_every_day),
              confirmed(for_family),
              not(confirmed(big_trunk)),
-             not(confirmed(presentability)).
+             not(confirmed(presentable)).
 
 sedan :- confirmed(for_every_day),
          confirmed(for_family),
          not(confirmed(big_trunk)),
-         confirmed(presentability).
+         confirmed(presentable).
 
 wagon :- confirmed(for_every_day),
          confirmed(for_family),
